@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — ORE HAUNT</title>
+<meta name="description" content="Privacy Policy for ORE HAUNT, published by Raaru.">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #0e1116; color: #e6e9ee; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.65; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 20px 64px; }
+  h1 { font-size: 2rem; line-height: 1.25; margin: 0 0 8px; }
+  h2 { font-size: 1.3rem; margin: 36px 0 10px; padding-top: 18px; border-top: 1px solid #232a33; }
+  h3 { font-size: 1.08rem; margin: 24px 0 8px; }
+  p, li { font-size: 1rem; }
+  .publisher { color: #9fb0c1; margin: 0 0 24px; }
+  a { color: #7cc4ff; }
+  code { background: #1a212b; padding: 1px 5px; border-radius: 4px; font-size: 0.92em; word-break: break-all; }
+  pre { background: #1a212b; padding: 12px 14px; border-radius: 8px; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  blockquote { margin: 16px 0; padding: 10px 16px; border-left: 3px solid #3a4656; background: #131922; color: #c4cedb; }
+  blockquote p { margin: 0; }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 0.95rem; display: block; overflow-x: auto; }
+  th, td { border: 1px solid #2a333f; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #161c25; }
+  footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #232a33; color: #8b98a8; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+<h1>Privacy Policy — ORE HAUNT</h1>
+<p class="publisher">Publisher: Raaru</p>
+<p><strong>Effective date:</strong> [EFFECTIVE_DATE]</p>
+<h2>1. Definitions</h2>
+<ul>
+<li><strong>&quot;Publisher,&quot; &quot;we,&quot; &quot;us&quot;:</strong> Raaru, the publisher of ORE HAUNT.</li>
+<li><strong>&quot;HAUNT&quot; / &quot;the app&quot;:</strong> ORE HAUNT, a premium intel app for ORE miners, shipped as a Seeker / Android WebView app and as a standalone single-file web build (<code>haunt.html</code>).</li>
+<li><strong>&quot;Wallet address&quot;:</strong> your public Solana wallet address.</li>
+<li><strong>&quot;Pass&quot;:</strong> a time-bound or lifetime entitlement purchased in the app (see the Terms of Service for the pass catalogue).</li>
+</ul>
+<h2>2. Scope</h2>
+<p>This policy explains what HAUNT does and does not collect when you use it, what stays on your device, what leaves your device, and what will change if and when the companion backend is hosted. Plain language throughout — if anything here is unclear, email <a href="mailto:raaruofficial+support@gmail.com">raaruofficial+support@gmail.com</a>.</p>
+<h2>3. Data we collect</h2>
+<h3>3.1 No accounts, and no server-side collection today</h3>
+<ul>
+<li>HAUNT has <strong>no account sign-up and no login of its own</strong> in the current build.</li>
+<li>The companion backend (<code>haunt-backend</code>) is <strong>built but not hosted</strong>, and the shipped app is configured with <code>PAYMENTS.backend = null</code>. That means, today:</li>
+<li>the app does <strong>not</strong> send your purchases, chat messages, or browsing in the app to a HAUNT server — there is no HAUNT server receiving them;</li>
+<li>payment verification happens <strong>on your device</strong> (see §5);</li>
+<li>entitlements are stored <strong>only in your browser / WebView storage</strong> (see §3.2).</li>
+<li>Section 7 describes, as forward-looking statements only, what changes when the backend is hosted.</li>
+</ul>
+<h3>3.2 What is stored on your device</h3>
+<p>The app stores the following in your browser&#x27;s / WebView&#x27;s local storage (and, for an in-flight payment, session storage) on your own device. This data is not transmitted to us in the current build.</p>
+<table><thead><tr><th>Storage key</th><th>What it holds</th></tr></thead><tbody>
+<tr><td><code>haunt_purchases</code></td><td>Your pass records — which tier you bought and when it expires (a lifetime pass is recorded with no expiry). This is your entitlement in the current build.</td></tr>
+<tr><td><code>haunt_pending</code> <em>(session storage)</em></td><td>A temporary record of a payment you have started — tier, quoted amount and currency — used to match your on-chain payment when you tap verify. It lives in session storage, not permanent local storage.</td></tr>
+<tr><td><code>haunt_chat_v1</code> and <code>haunt_chat_v1_note</code></td><td>Your local chat: messages you post in the local-preview chat, per-channel, plus whether you dismissed the chat note. Chat is local-only today — see §3.3.</td></tr>
+<tr><td><code>haunt_companion</code></td><td>Your GHOST companion state (the mining-ghost companion hatched from your miner profile in the app).</td></tr>
+<tr><td><code>haunt_onboarded</code></td><td>Whether you have completed first-run onboarding.</td></tr>
+<tr><td><code>haunt_splash_seen</code></td><td>Whether the first-run splash has been shown / dismissed, including when a payment is started from it.</td></tr>
+<tr><td><code>haunt_intro_exp_shown</code></td><td>The expiry timestamp of an Intro pass whose expiry splash has already been shown, so it is not shown again for that pass.</td></tr>
+</tbody></table>
+<p>You can delete all of this at any time by clearing the app&#x27;s / browser&#x27;s site data. Doing so will also remove your locally stored pass records and local chat — in the current build there is no server copy to restore them from.</p>
+<h3>3.3 Chat today is local-only</h3>
+<p>Chat in the current build is a <strong>local preview</strong>: messages are stored only in <code>haunt_chat_v1</code> on your device, are not sent to a HAUNT server, and are not visible to other users. The app labels it as a local preview in its own UI. A live, multi-user chat transport is a future step (see §7).</p>
+<h3>3.4 The intel dataset is bundled, not tracked</h3>
+<p>The miner leaderboard, dossiers, round explorer and replays shown in the app come from a dataset <strong>bundled into the app file at build time</strong> (settled ORE round history collected from public on-chain data by the project&#x27;s data pipeline). Displaying it does not require the app to send your identity anywhere.</p>
+<h3>3.5 What we do not collect</h3>
+<ul>
+<li><strong>No private keys, no seed phrases — ever.</strong> Payments are approved by you in your own wallet. The app creates a Solana Pay payment link / request; it never sees or holds your keys.</li>
+<li><strong>No sale of personal data.</strong> There is no server-side personal data to sell in the current build.</li>
+<li><strong>No third-party advertising SDKs and no advertising identifiers</strong> are described in, or were found in, the app source used for this draft. <em>[Owner to confirm before publication that the final store build adds none.]</em></li>
+</ul>
+<h2>4. How your data is used</h2>
+<p>Because there is no server-side collection today, use is local and functional only:</p>
+<ul>
+<li><strong>To unlock what you bought:</strong> the app reads <code>haunt_purchases</code> on your device to decide which premium surfaces to open, and for how long.</li>
+<li><strong>To remember your place:</strong> onboarding, splash and chat-note flags stop the app nagging you about things you have already seen.</li>
+<li><strong>To run local features:</strong> your companion state and your local chat live where you created them — on your device.</li>
+</ul>
+<h2>5. Wallet, payments, and third-party calls</h2>
+<h3>5.1 Non-custodial by design</h3>
+<p>HAUNT is <strong>non-custodial</strong>: your funds stay in your own wallet until you approve a payment in that wallet. We cannot move your funds and we never hold your keys.</p>
+<h3>5.2 Payments are public on-chain records — by nature, not by our choice</h3>
+<p>Passes are paid in SOL, ORE or SKR to the app&#x27;s treasury wallet:</p>
+<pre><code>FRShnxX7vi64gtBoA6JPmH9MBuVqtheEQaxA1D17wKdP</code></pre>
+<p>When you pay:</p>
+<ul>
+<li>Your wallet sends a real Solana transaction to that treasury. <strong>Solana transactions are public</strong>: anyone can see the sending wallet, the receiving wallet, the asset, the amount and the time on a public block explorer. Buying a pass therefore creates a public on-chain record linking your paying wallet to the treasury. We cannot make that record private, and this policy does not pretend otherwise.</li>
+<li>The quoted token amount is priced from a US-dollar tier price using the Jupiter Price API (see §5.3).</li>
+<li>In the current build, verification happens <strong>on your device</strong>: the app reads the public Solana chain (see §5.3), looks for a recent transaction to the treasury, and checks that the treasury&#x27;s balance increased by at least 99% of the quoted amount for that payment. If it matches, the app writes your pass into <code>haunt_purchases</code> on your device.</li>
+</ul>
+<h3>5.3 Third-party services the app calls directly from your device</h3>
+<p>These calls go from your device to the service named — they are not routed through a HAUNT server in the current build:</p>
+<table><thead><tr><th>Service</th><th>Endpoint / use</th><th>What is sent</th></tr></thead><tbody>
+<tr><td>Jupiter Price API</td><td><code>https://lite-api.jup.ag/price/v3</code> — live prices for SOL, ORE and SKR so a dollar-priced pass can be quoted in tokens</td><td>The token mint addresses being priced. No wallet address is included in the price request as implemented.</td></tr>
+<tr><td>Public Solana RPC</td><td><code>https://api.mainnet-beta.solana.com</code> — payment verification reads (<code>getSignaturesForAddress</code> for the treasury, then <code>getTransaction</code> for candidate signatures)</td><td>Standard public-chain read requests for the treasury address and transaction signatures. The RPC operator can see your device&#x27;s IP address and the requests it makes, as with any web request.</td></tr>
+</tbody></table>
+<p>Each of those services is run by a third party under its own privacy terms. HAUNT does not control them.</p>
+<h3>5.4 What a price or RPC failure means for your privacy</h3>
+<p>Nothing extra is collected on failure. If a price cannot be fetched, the app refuses to invent a rate; if verification cannot reach the network, no pass is written.</p>
+<h2>6. Data retention</h2>
+<ul>
+<li><strong>On-device data</strong> (§3.2) stays on your device until you clear it, the pass it records expires (expired records may remain in storage until overwritten or cleared), or you uninstall / clear site data.</li>
+<li><strong>On-chain payment records</strong> (§5.2) are permanent public blockchain records. We cannot delete, edit or expire them, and no request to us can change that.</li>
+<li>Because there is <strong>no server-side collection today</strong>, there is no HAUNT server database of your activity to request deletion from in the current build. If the backend is hosted later, §7 applies and this policy will be updated before that change goes live.</li>
+</ul>
+<h2>7. Forward-looking: what changes when the backend is hosted</h2>
+<blockquote><p><strong>This section is forward-looking. None of the following is live today.</strong> It is included so the change is disclosed before it happens, not after. This policy will be updated — and the effective date changed — before the backend configuration is switched on in a shipped build.</p></blockquote>
+<p>The built-but-unhosted backend (<code>haunt-backend</code>, SQLite, described in its own README) is designed to:</p>
+<ul>
+<li>issue payment quotes (<code>POST /v1/pay/quote</code>) and verify payments server-side (<code>POST /v1/pay/verify</code>), binding the resulting entitlement to <strong>the wallet that actually paid</strong>, as read from the payment transaction — not to a wallet the client merely claims;</li>
+<li>keep an entitlement ledger, a rolling-24-hour ANOMALY slot ledger (which, for that tier, records a wallet and a source IP for holds, and rate-limits quote attempts by IP), and a Founder Lifetime claim ledger keyed by the paying wallet;</li>
+<li>offer <code>.skr</code> wallet authentication by signed challenge (<code>/v1/auth/challenge</code>, <code>/v1/auth/verify</code>), which is also the identity rail a future live chat transport would use.</li>
+<li>While its treasury is unconfigured, that backend refuses settlement by construction (quotes and verification return <code>payments_not_configured</code> / 503).</li>
+</ul>
+<p>When that backend is hosted and the app is pointed at it, the data in those ledgers — paying wallet, tier, timestamps, and for ANOMALY holds the source IP — will be collected server-side for the purposes above. The exact hosted retention periods are <strong>[retention period — owner to fill before the backend goes live]</strong>.</p>
+<h2>8. Security</h2>
+<p>On-device storage inherits the security of your device and browser / WebView: anyone with unlocked access to your device can read what the app has stored there, including your local pass records and local chat. No method of transmission or storage is completely secure, and we cannot guarantee absolute security.</p>
+<h2>9. Children&#x27;s privacy</h2>
+<p>HAUNT is an intel tool for participants in the ORE mining ecosystem and is not directed at children under 13. We do not knowingly collect data from children under 13. If you believe a child has provided data, contact <a href="mailto:raaruofficial+support@gmail.com">raaruofficial+support@gmail.com</a> and we will address it.</p>
+<h2>10. Changes to this policy</h2>
+<p>If we change this policy, we will post the new version at the same URL and update the effective date above. Material changes — in particular, hosting the backend described in §7 or enabling any new server-side collection — will be reflected here <strong>before</strong> they take effect in a shipped build.</p>
+<h2>11. Contact</h2>
+<p>Raaru — privacy questions and data requests: <a href="mailto:raaruofficial+support@gmail.com">raaruofficial+support@gmail.com</a></p>
+<footer>ORE HAUNT is published by Raaru. Privacy questions and data requests: <a href="mailto:raaruofficial+support@gmail.com">raaruofficial+support@gmail.com</a>.</footer>
+</main>
+</body>
+</html>
